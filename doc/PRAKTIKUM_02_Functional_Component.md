@@ -6,6 +6,18 @@ Panduan ini mengajak kamu belajar **Functional Component** dari nol—dengan bah
 
 ---
 
+## Target Pelajaran Hari Ini
+
+| No | Target | Keterangan |
+|----|--------|------------|
+| 1 | **Membuat folder components** | Component praktikum diletakkan di folder `components/praktikum/` (di dalam `components/`). |
+| 2 | **Membuat Header, Card, dan CustomButton** | Tiga component dengan props: **Header** (title, subtitle), **Card** (title, subtitle), **CustomButton** (title, onPress, variant). |
+| 3 | **Membuat Counter dengan useState** | Component yang punya state (angka) dan tombol Tambah/Kurangi; nilai berubah saat user tap. |
+
+Di app, buka tab **Praktikum** untuk melihat contoh Header, Card, CustomButton, dan Counter. **Semua component target pelajaran disimpan di folder `components/praktikum/`:** `Header.tsx`, `CustomButton.tsx`, `CardWithProps.tsx` (Card), `Counter.tsx`.
+
+---
+
 ## Pendahuluan: Kenapa Belajar Functional Component?
 
 Di React (dan React Native/Expo), hampir semua yang tampil di layar itu **component**. Bisa dibayangin kayak blok LEGO: satu blok buat tombol, satu blok buat kartu, satu blok buat header. Nanti blok-blok itu disusun jadi satu layar penuh.
@@ -188,11 +200,13 @@ Agar teori tadi langsung keliatan di app, di project ini sudah disiapkan tiga fi
 
 | File | Isi singkat |
 |------|------------------|
-| **`components/praktikum/HelloFunctional.tsx`** | Functional component paling sederhana (tanpa props). |
-| **`components/praktikum/CardWithProps.tsx`** | Component dengan props **title** dan **subtitle** (optional). |
+| **`components/praktikum/Header.tsx`** | Header dengan props **title** dan **subtitle** (optional). |
+| **`components/praktikum/CustomButton.tsx`** | Tombol dengan props **title**, **onPress**, **variant** (primary/secondary). |
+| **`components/praktikum/CardWithProps.tsx`** | Card dengan props **title** dan **subtitle** (optional). |
 | **`components/praktikum/Counter.tsx`** | Component dengan **useState** buat counter plus tombol Tambah/Kurangi. |
+| **`components/praktikum/HelloFunctional.tsx`** | Functional component paling sederhana (tanpa props). |
 
-Cara lihat hasilnya: jalankan app (misalnya **`npm start`** lalu pilih Android/Web/iOS), lalu buka tab **Praktikum**. Di sana ketiga contoh itu ditampilkan; kamu bisa bandingkan dengan kode di masing-masing file biar nyambung sama penjelasan di atas.
+Cara lihat hasilnya: jalankan app (misalnya **`npm start`** lalu pilih Android/Web/iOS), lalu buka tab **Praktikum**. Di sana ditampilkan **Target Pelajaran Hari Ini** (Header, Card, CustomButton, Counter) plus contoh HelloFunctional, CardWithProps, dan Counter; bandingkan dengan kode di masing-masing file biar nyambung sama penjelasan di atas.
 
 ### 4.1 Penjelasan File & Halaman yang Dibuat
 
@@ -203,6 +217,22 @@ Berikut penjelasan tiap file dan halaman yang dipakai di praktikum ini—biar ka
 #### **`doc/PRAKTIKUM_02_Functional_Component.md`** (file ini)
 
 Ini **dokumen panduan** praktikum: berisi teori Functional Component, Props, dan State (useState), plus contoh kode dan latihan. Dibuat supaya kamu bisa baca sambil praktik; tidak dijalankan oleh app, cuma buat referensi.
+
+---
+
+#### **`components/praktikum/Header.tsx`**
+
+**Fungsi:** Component **Header** reusable — menampilkan judul dan subtitle (opsional) di bagian atas.
+
+**Isi singkat:** Menerima props **title** (wajib) dan **subtitle** (opsional). Dipakai di halaman Praktikum di blok "Target Pelajaran Hari Ini" dan di section "✓ Header". Contoh: `<Header title="Praktikum 2" subtitle="Pemrograman Mobile II" />`.
+
+---
+
+#### **`components/praktikum/CustomButton.tsx`**
+
+**Fungsi:** Component **tombol** reusable dengan props title, onPress, dan variant (primary/secondary).
+
+**Isi singkat:** Memakai **Pressable** (bukan Button) agar styling fleksibel; variant **primary** = tombol isi warna, **secondary** = outline. Ada efek pressed (opacity). Dipakai di halaman Praktikum di section "✓ CustomButton". Contoh: `<CustomButton title="Simpan" onPress={() => ...} />`.
 
 ---
 
@@ -225,7 +255,7 @@ Ini **dokumen panduan** praktikum: berisi teori Functional Component, Props, dan
 - Function **CardWithProps** menerima **{ title, subtitle }** lalu menampilkan **title** dan **subtitle** (kalau ada) di dalam satu **View** yang di-style kayak kartu (background abu-abu muda, padding, border radius).  
 - Jadi satu component bisa dipakai berkali-kali dengan **title** dan **subtitle** yang beda-beda—sesuai konsep “props = data dari parent”.
 
-**Dipakai di mana:** Di halaman Praktikum, di section “2. CardWithProps (dengan props)”—dipanggil tiga kali dengan kombinasi title/subtitle yang berbeda (termasuk satu tanpa subtitle).
+**Dipakai di mana:** Di halaman Praktikum, di section “2. CardWithProps (dengan props)”—dipanggil beberapa kali dengan kombinasi title/subtitle yang berbeda (termasuk tanpa subtitle). Juga dipakai di section "✓ Card" (Target Pelajaran).
 
 ---
 
@@ -239,7 +269,7 @@ Ini **dokumen panduan** praktikum: berisi teori Functional Component, Props, dan
 - Styling hijau muda; tombol ada efek pressed (opacity).  
 - Setiap tombol diklik, state berubah → React render ulang → angka di layar ikut berubah. Cocok buat nangkep konsep “state = data yang bisa berubah di dalam component”.
 
-**Dipakai di mana:** Di halaman Praktikum, di section “3. Counter (dengan useState)”.
+**Dipakai di mana:** Di halaman Praktikum, di section "✓ Counter (useState)" (Target Pelajaran) dan "3. Counter (dengan useState)".
 
 ---
 
@@ -249,14 +279,11 @@ Ini **dokumen panduan** praktikum: berisi teori Functional Component, Props, dan
 
 **Isi singkat:**  
 - Export default **PraktikumScreen** — function component yang return **ScrollView** (biar bisa scroll kalau konten panjang).  
-- Di dalamnya: judul “Praktikum 2: Functional Component”, lalu tiga **section** (View + judul section):  
-  1. Section 1: **HelloFunctional** (tanpa props).  
-  2. Section 2: **CardWithProps** dipanggil tiga kali dengan props berbeda.  
-  3. Section 3: **Counter**.  
+- Di dalamnya: judul “Praktikum 2: Functional Component”, **Blok "Target Pelajaran Hari Ini"**: **Header**, lalu **✓ Header**, **✓ Card**, **✓ CustomButton**, **✓ Counter (useState)**. Di bawahnya **Contoh Lain**: **HelloFunctional**, **CardWithProps** (beberapa card), **Counter**.  
 - Di bawah ada teks kecil yang ngasih tau lokasi panduan (doc/...).  
 - Semua styling pakai **StyleSheet** (padding, font size, warna, margin antar section).
 
-Jadi file ini ibarat “panggung”: dia yang **import** ketiga component tadi lalu **menyusun** tampilannya di satu halaman. Kamu bisa ubah-ubah isi section ini (misalnya nambah CardWithProps lagi atau ganti teks) buat eksperimen.
+Jadi file ini ibarat “panggung”: dia yang **import** semua component (Header, CustomButton, CardWithProps, Counter, HelloFunctional) lalu **menyusun** tampilannya di satu halaman. Kamu bisa ubah-ubah isi section ini (misalnya nambah CardWithProps lagi atau ganti teks) buat eksperimen.
 
 ---
 
@@ -266,7 +293,7 @@ Jadi file ini ibarat “panggung”: dia yang **import** ketiga component tadi l
 
 **Isi yang relevan:**  
 - Di dalam **&lt;Tabs&gt;** ada beberapa **&lt;Tabs.Screen&gt;**; masing-masing = satu tab.  
-- **Tabs.Screen** dengan **name="praktikum"** itu yang bikin tab “Praktikum” muncul: **title** di tab bar = "Praktikum", **tabBarIcon** pakai ikon buku (**book.fill**).  
+- **Tabs.Screen** dengan **name="praktikum"** itu yang bikin tab “Praktikum” muncul: **title** di tab bar = "Praktikum", **tabBarIcon** pakai ikon topi wisuda (**graduationcap.fill** / school).  
 - Karena **name="praktikum"**, Expo Router otomatis nampilin isi file **praktikum.tsx** saat tab itu dipilih.
 
 Tanpa penambahan ini, halaman **praktikum.tsx** tetap ada di project tapi tidak muncul sebagai tab; dengan **Tabs.Screen** ini, kamu bisa buka tab “Praktikum” dan langsung lihat semua contoh.
@@ -275,8 +302,8 @@ Tanpa penambahan ini, halaman **praktikum.tsx** tetap ada di project tapi tidak 
 
 **Ringkasannya:**  
 - **doc/** = panduan (teori + latihan).  
-- **components/praktikum/** = tiga “blok” component (HelloFunctional, CardWithProps, Counter).  
-- **app/(tabs)/praktikum.tsx** = halaman yang menampilkan ketiga blok itu.  
+- **components/praktikum/** = semua component target pelajaran + contoh: **Header**, **CustomButton**, **CardWithProps** (Card), **Counter**, **HelloFunctional**.
+- **app/(tabs)/praktikum.tsx** = halaman yang menampilkan Target Pelajaran (Header, Card, CustomButton, Counter) plus contoh HelloFunctional, CardWithProps, Counter.  
 - **app/(tabs)/_layout.tsx** = konfigurasi tab; di sini tab “Praktikum” didaftarkan supaya halaman tadi bisa diakses dari tab bar.
 
 Kalau kamu bingung “ubah di file mana?”, ingat: ubah **tampilan/perilaku satu contoh** → edit file di **components/praktikum/**; ubah **urutan atau jumlah contoh di halaman** → edit **app/(tabs)/praktikum.tsx**; ubah **nama tab atau ikon** → edit **app/(tabs)/_layout.tsx**.

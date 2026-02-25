@@ -6,7 +6,7 @@ Repo ini berisi **project praktikum** untuk mata kuliah **Pemrograman Perangkat 
 
 ## Isi Repo Ini Apa Saja?
 
-Singkatnya: **satu app Expo** yang sudah dikasih **tab tambahan bernama "Praktikum"**. Di tab itu kamu bisa lihat contoh-contoh **Functional Component** (tanpa props, dengan props, dan dengan state). Teori dan langkah belajarnya ada di folder **`doc/`** dalam bentuk panduan tertulis, jadi kamu bisa baca sambil coba-coba di kode.
+Singkatnya: **satu app Expo** yang sudah dikasih **tab "Praktikum"**. Di tab itu ada **Target Pelajaran Hari Ini** (Header, Card, CustomButton, Counter dengan useState) plus **Contoh Lain** (HelloFunctional, CardWithProps). Semua component praktikum ada di folder **`components/praktikum/`**. Teori dan langkah belajarnya ada di **`doc/`**, jadi kamu bisa baca sambil coba-coba di kode.
 
 Kalau kamu baru pertama kali pakai Expo/React Native, repo ini cocok buat starting point: struktur project rapi, ada contoh yang bisa di-run langsung, dan ada penjelasan per file biar enggak bingung "ini file buat apa sih".
 
@@ -66,13 +66,15 @@ Belajar-EXPO-Pemrograman-Perangkat-Mobile-2/
 │       ├── _layout.tsx     # Definisi tab (ikon, judul)
 │       ├── index.tsx       # Tab "Home"
 │       ├── explore.tsx     # Tab "Explore"
-│       └── praktikum.tsx   # Tab "Praktikum" — nampilin contoh Functional Component
+│       └── praktikum.tsx   # Tab "Praktikum" — Target Pelajaran + contoh Functional Component
 │
 ├── components/
-│   └── praktikum/          # Komponen contoh untuk praktikum
-│       ├── HelloFunctional.tsx   # Contoh paling sederhana (tanpa props)
-│       ├── CardWithProps.tsx     # Contoh component dengan props
-│       └── Counter.tsx           # Contoh component dengan useState
+│   └── praktikum/          # Semua component praktikum (target pelajaran + contoh)
+│       ├── Header.tsx      # Header (title, subtitle)
+│       ├── CustomButton.tsx # Tombol (title, onPress, variant)
+│       ├── CardWithProps.tsx # Card (title, subtitle) — target "Card"
+│       ├── Counter.tsx     # Counter dengan useState (Tambah/Kurangi)
+│       └── HelloFunctional.tsx # Contoh tanpa props
 │
 ├── doc/                    # Panduan & materi
 │   ├── PRAKTIKUM_02_Functional_Component.md   # Panduan lengkap Functional Component
@@ -90,13 +92,19 @@ Belajar-EXPO-Pemrograman-Perangkat-Mobile-2/
 
 ## Praktikum 2: Functional Component
 
-Materi yang disiapkan di repo ini fokus ke **Functional Component**: apa itu, cara pakai **props**, dan cara pakai **state** dengan **useState**. Di app, semuanya keliatan di **tab "Praktikum"**:
+Materi di repo ini fokus ke **Functional Component**, **props**, dan **useState**. Di **tab "Praktikum"** kamu akan lihat:
 
-1. **HelloFunctional** — functional component paling sederhana (tanpa props)
-2. **CardWithProps** — component yang terima data dari luar (title, subtitle)
-3. **Counter** — component yang punya data berubah (angka naik/turun pakai useState)
+**Target Pelajaran Hari Ini**
+1. **Header** — judul + subtitle (props)
+2. **Card** (CardWithProps) — title + subtitle (props)
+3. **CustomButton** — tombol dengan title, onPress, variant (props)
+4. **Counter** — angka naik/turun dengan useState (state)
 
-Panduan lengkap (teori, contoh kode, penjelasan per file, dan latihan) ada di:
+**Contoh Lain**
+- **HelloFunctional** — component tanpa props
+- **CardWithProps** — beberapa card dengan data berbeda
+
+Panduan lengkap (teori, contoh kode, penjelasan per file, latihan) ada di:
 
 **`doc/PRAKTIKUM_02_Functional_Component.md`**
 
@@ -141,8 +149,8 @@ Kalau repo ini dipakai bareng (misalnya satu kelas), biasakan pull dulu sebelum 
 
 ## Ringkasan
 
-- Repo ini = **project Expo** + **praktikum Functional Component** + **panduan di `doc/`**.
+- Repo ini = **project Expo** + **praktikum Functional Component** (Header, Card, CustomButton, Counter + contoh) + **panduan di `doc/`**.
 - Jalanin: **clone → npm install → npm start** → pilih platform atau scan QR.
-- Belajar: buka **tab Praktikum** di app dan baca **`doc/PRAKTIKUM_02_Functional_Component.md`**.
+- Belajar: buka **tab Praktikum** (ikon topi wisuda) dan baca **`doc/PRAKTIKUM_02_Functional_Component.md`**.
 
 Semoga bantu belajarnya. Kalau ada yang kurang jelas, coba run app-nya dulu, baru baca panduan sambil lihat kode—sering itu yang bikin "oh, ternyata gitu"-nya muncul.

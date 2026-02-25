@@ -1,3 +1,13 @@
+/**
+ * index.tsx — Halaman (Screen) Tab "Home"
+ *
+ * Ini adalah halaman pertama yang tampil saat app dibuka (tab default).
+ * Menggunakan ParallaxScrollView untuk efek scroll parallax pada header,
+ * dan komponen bertema (ThemedView, ThemedText) yang mengikuti mode terang/gelap.
+ *
+ * Route: / (atau /(tabs)/ karena index = halaman utama di dalam group (tabs)).
+ */
+
 import { Image } from 'expo-image';
 import { Platform, StyleSheet } from 'react-native';
 
@@ -7,6 +17,10 @@ import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
 import { Link } from 'expo-router';
 
+/**
+ * HomeScreen — component untuk tab Home.
+ * ParallaxScrollView: scroll view dengan gambar header yang bergerak parallax saat scroll.
+ */
 export default function HomeScreen() {
   return (
     <ParallaxScrollView
@@ -17,10 +31,13 @@ export default function HomeScreen() {
           style={styles.reactLogo}
         />
       }>
+      {/* Blok judul: "Welcome!" + animasi wave */}
       <ThemedView style={styles.titleContainer}>
         <ThemedText type="title">Welcome!</ThemedText>
         <HelloWave />
       </ThemedView>
+
+      {/* Step 1: petunjuk edit file dan dev tools */}
       <ThemedView style={styles.stepContainer}>
         <ThemedText type="subtitle">Step 1: Try it</ThemedText>
         <ThemedText>
@@ -36,6 +53,8 @@ export default function HomeScreen() {
           to open developer tools.
         </ThemedText>
       </ThemedView>
+
+      {/* Step 2: link ke modal + kontekstual menu (action/share/more) */}
       <ThemedView style={styles.stepContainer}>
         <Link href="/modal">
           <Link.Trigger>
@@ -64,6 +83,8 @@ export default function HomeScreen() {
           {`Tap the Explore tab to learn more about what's included in this starter app.`}
         </ThemedText>
       </ThemedView>
+
+      {/* Step 3: info reset project */}
       <ThemedView style={styles.stepContainer}>
         <ThemedText type="subtitle">Step 3: Get a fresh start</ThemedText>
         <ThemedText>
