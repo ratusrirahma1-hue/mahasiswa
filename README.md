@@ -3,6 +3,10 @@
 Repo ini berisi **project praktikum** untuk mata kuliah **Pemrograman Perangkat Mobile 2**, pakai **Expo** dan **React Native**. Di sini kamu bisa jalankan app, lihat contoh kode, dan ikuti panduan praktikum—**Praktikum 2** (Functional Component, props, useState), **Praktikum 3** (CRUD, Login, Logout), serta **koneksi ke database cloud Supabase** (baca data mahasiswa lewat tab **Cloud**).
 
 ---
+## Tampilan Aplikasi
+
+### 1. Tampilan Dashboard
+![Dashboard](assets/images/ss_uts.jpeg)
 
 ## Isi Repo Ini Apa Saja?
 
