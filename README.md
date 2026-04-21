@@ -5,7 +5,7 @@ Repo ini berisi **project praktikum** untuk mata kuliah **Pemrograman Perangkat 
 ---
 ## Tampilan Aplikasi
 
-### 1. Tampilan 
+### 1. Tampilan Cloud
 ![Dashboard](assets/images/ssuts.jpeg)
 
 ## Isi Repo Ini Apa Saja?
